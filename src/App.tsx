@@ -6,16 +6,17 @@ import SectionContext from "./SectionContext";
 
 const DETAILS = ["About Me", "My Projects", "Interests"];
 
-const App = () => {
-  const section = useState(0);
-
+const App: React.FC = () => {
+  const active = useState(0);
   return (
-    <SectionContext.Provider value={section}>
-      <ChakraProvider>
-        <ProfileLayout details={DETAILS}/>
-        <MainBody details={DETAILS}/>
-      </ChakraProvider>
-    </SectionContext.Provider>
+    <div>
+      <SectionContext.Provider value={active}>
+        <ChakraProvider>
+          <ProfileLayout details={DETAILS} />
+          <MainBody details={DETAILS} />
+        </ChakraProvider>
+      </SectionContext.Provider>
+    </div>
   );
 };
 

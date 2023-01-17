@@ -1,15 +1,17 @@
 import { Box, Button } from "@chakra-ui/react";
 import React, { useContext, useReducer, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import Carousel from "./Carousel";
 import SectionContext from "./SectionContext";
+import { useActive } from "./App";
 import { clickHandle } from "./types";
 
 interface IProps {
   details: string[];
 }
 
-const DetailParent: React.FC<IProps> = ({details}) => {
-  const [active, setActive] = useContext(SectionContext);
+const DetailParent: React.FC<IProps> = ({ details }) => {
+  const [ active, setActive ] = useContext(SectionContext);
 
   const clickHandle: clickHandle = (e) => {
     if (!(e.target instanceof HTMLButtonElement)) return;
@@ -23,16 +25,16 @@ const DetailParent: React.FC<IProps> = ({details}) => {
         break;
       }
       case "About Me": {
-        setActive(details.indexOf("About Me"))
+        setActive(details.indexOf("About Me"));
         break;
       }
       case "Interests": {
-        setActive(details.indexOf("Interests"))
+        setActive(details.indexOf("Interests"));
         break;
       }
       case "My Projects": {
-        console.log('hi')
-        setActive(details.indexOf("My Projects"))
+        console.log("hi");
+        setActive(details.indexOf("My Projects"));
         break;
       }
       default:
