@@ -1,10 +1,15 @@
 import { Box } from "@chakra-ui/react"
 import { useContext } from "react"
+import BodyCard from "./BodyCard"
 import SectionContext from "./SectionContext"
 
-const MainBody: React.FC = () => {
-  const [active, setActive] = useContext(SectionContext)
-  return <Box>{active}</Box>
+interface IProps {
+  details: string[]
+}
+const MainBody: React.FC<IProps> = ({details}) => {
+  const [active, setActive] = useContext(SectionContext);
+
+  return <BodyCard />
 }
 
 export default MainBody

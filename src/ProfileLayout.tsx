@@ -1,7 +1,6 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, interactivity, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DetailParent from "./DetailParent";
-import MainBody from "./MainBody";
 
 const TITLES = [
   "Full Stack Engineer",
@@ -9,9 +8,11 @@ const TITLES = [
   "League of Legends Enjoyer",
 ];
 
-const DETAILS = ["About Me", "My Projects", "Interests", "Yo", "1"];
+interface IProps {
+  details: string[];
+}
 
-const ProfileLayout: React.FC = () => {
+const ProfileLayout: React.FC<IProps> = ({details}) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -36,10 +37,7 @@ const ProfileLayout: React.FC = () => {
         <Text fontSize="3xl">{TITLES[index]}</Text>
       </Box>
       <Box position="relative" marginTop="200px" bg="yellow">
-        <DetailParent details={DETAILS} />
-      </Box>
-      <Box>
-        <MainBody />
+        <DetailParent details={details} />
       </Box>
     </>
   );
