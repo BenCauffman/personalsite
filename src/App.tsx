@@ -2,20 +2,20 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { useState } from "react";
 import MainBody from "./MainBody";
 import ProfileLayout from "./ProfileLayout";
-import SectionContext from "./SectionContext";
+import DetailContext from "./context";
 
-const DETAILS = ["About Me", "My Projects", "Interests"];
 
 const App: React.FC = () => {
-  const active = useState(0);
+  const [active, setActive] = useState('About Me');
+  const [section, setSection] = useState(["About Me", "My Projects", "Interests"]);
   return (
     <div>
-      <SectionContext.Provider value={active}>
+      <DetailContext.Provider value={{active, setActive, section, setSection}}>
         <ChakraProvider>
-          <ProfileLayout details={DETAILS} />
-          <MainBody details={DETAILS} />
+          <ProfileLayout />
+          <MainBody />
         </ChakraProvider>
-      </SectionContext.Provider>
+      </DetailContext.Provider>
     </div>
   );
 };

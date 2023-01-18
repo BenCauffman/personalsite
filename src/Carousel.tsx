@@ -1,30 +1,33 @@
 import { Box, Button, NumberInputStepper, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import DetailContext, { SectionContext } from "./context";
 import { clickHandle } from "./types";
 
 interface IProps {
-  active: number;
-  details: string[];
+  active: string;
   click: clickHandle;
 }
 
-const Carousel: React.FC<IProps> = ({ active, details, click }) => {
+const Carousel: React.FC<IProps> = ({ active, click }) => {
+  const { section } = useContext(DetailContext);
 
   return (
-    <Stack minWidth='50%' bg="pink" display="flex" alignItems="center">
-      <Box display='flex' gap='20px'>
-        {details.map((detail, index) => {
-          if (index !== active) {
-            return (
-              <Button onClick={(e) => click(e)} data-active={detail} key={`${index}-${detail}`}>
-                {detail}
-              </Button>
-            );
-          }
+    <Stack minWidth="50%" bg="pink" display="flex" alignItems="center">
+      <Box display="flex" gap="20px">
+        {section.map((detail, index) => {
+          return (
+            <Button
+              onClick={(e) => click(e)}
+              data-active={detail}
+              key={`${index}-${detail}`}
+            >
+              {detail}
+            </Button>
+          );
         })}
       </Box>
       <Box>
-        <Text fontSize="3xl">{details[active]}</Text>
+        <Text fontSize="3xl">{active}</Text>
       </Box>
     </Stack>
   );

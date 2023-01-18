@@ -8,11 +8,8 @@ const TITLES = [
   "League of Legends Enjoyer",
 ];
 
-interface IProps {
-  details: string[];
-}
 
-const ProfileLayout: React.FC<IProps> = ({details}) => {
+const ProfileLayout: React.FC = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -37,7 +34,7 @@ const ProfileLayout: React.FC<IProps> = ({details}) => {
         <Text fontSize="3xl">{TITLES[index]}</Text>
       </Box>
       <Box position="relative" marginTop="200px" bg="yellow">
-        <DetailParent details={details} />
+        <DetailParent />
       </Box>
     </>
   );
