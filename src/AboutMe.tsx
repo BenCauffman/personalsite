@@ -1,25 +1,52 @@
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Stack, Text } from "@chakra-ui/react";
 import ben from "../public/images/site-welcome.png";
+import Education from "./Education";
+import Interests from "./Interests";
+import { clickHandle } from "./types";
+
+const sections = ["Education", "Interests"];
 
 const AboutMe: React.FC = () => {
+  const clickHandle: clickHandle = (e) => {
+    if (!(e.target instanceof HTMLButtonElement)) return;
+    else {
+      const element = document.getElementById(`${e.target.dataset.id}`);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
-      <Stack direction="row" gap="20px">
+      <Box display="flex">
+        {sections.map((section) => {
+          return (
+            <Button
+              key={`${section}`}
+              data-id={`${section}`}
+              onClick={clickHandle}
+            >
+              {section}
+            </Button>
+          );
+        })}
+      </Box>
+      <Box marginBottom='300' display='flex' gap="20px">
+        <Text fontSize="2xl">
+          {" "}
+          I am a Full Stack developer currently working on building interesting
+          and fun applications and always looking for inspiration for cool stuff
+          to build! Take a look around at some of my projects and interests and
+          feel free to reach out to me on any of the platforms provided!
+        </Text>
         <Image boxSize="lg" objectFit="cover" src={ben} alt="ben" />
-        <Stack gap='20px'>
-          <Text fontSize="2xl">
-            {" "}
-            I am a Full Stack developer currently working on building
-            interesting and fun applications and always looking for
-            inspiration for cool stuff to build! Take a look around at some of
-            my projects and interests and feel free to reach out to me on any of
-            the platforms provided!
-          </Text>
-          <Text fontSize="2xl">
-            {" "}
-          </Text>
-        </Stack>
-      </Stack>
+      </Box>
+      <Box>
+        <Box marginBottom='250' id="Education">
+          <Education />
+        </Box>
+        <Box marginBottom='250' id="Interests">
+          <Interests/>
+        </Box>
+      </Box>
     </>
   );
 };

@@ -25,15 +25,15 @@ const ProfileLayout: React.FC = () => {
       <Box
         textAlign="center"
         bg="tomato"
-        position="fixed"
-        top="0"
-        h="200px"
-        w="100vw"
+        // position="fixed"
+        // top="0"
+        // h="200px"
+        // w="100vw"
       >
         <Text fontSize="5xl">Benjamin Cauffman</Text>
         <Text fontSize="3xl">{TITLES[index]}</Text>
       </Box>
-      <Box position="relative" marginTop="200px" bg="yellow">
+      <Box position="relative" bg="yellow">
         <DetailParent />
       </Box>
     </>

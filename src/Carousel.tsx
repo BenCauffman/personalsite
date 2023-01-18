@@ -1,6 +1,6 @@
 import { Box, Button, NumberInputStepper, Stack, Text } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
-import DetailContext, { SectionContext } from "./context";
+import DetailContext from "./context";
 import { clickHandle } from "./types";
 
 interface IProps {

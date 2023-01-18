@@ -6,6 +6,12 @@ import App from "./App";
 //   {
 //     path: "/",
 //     element: <App />,
+//     children: [
+//       {
+//         path: "/education",
+//         element:
+//       }
+//     ]
 //   },
 // ]);
 const root = createRoot(document.getElementById("root")!);

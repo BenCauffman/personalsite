@@ -7,7 +7,7 @@ import DetailContext from "./context";
 
 const App: React.FC = () => {
   const [active, setActive] = useState('About Me');
-  const [section, setSection] = useState(["About Me", "My Projects", "Interests"]);
+  const [section, setSection] = useState(["About Me", "My Projects", "Contact Me"]);
   return (
     <div>
       <DetailContext.Provider value={{active, setActive, section, setSection}}>
