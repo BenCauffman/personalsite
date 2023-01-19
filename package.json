@@ -6,8 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "@emotion/styled": "^11.10.5",
     "@react-spring/types": "^9.6.1",
     "express": "^4.18.2",
+    "next": "^13.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",

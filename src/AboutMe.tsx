@@ -1,8 +1,9 @@
-import { Box, Button, Image, Stack, Text } from "@chakra-ui/react";
-import ben from "../public/images/site-welcome.png";
+import { Box, Button, Stack, Text } from "@chakra-ui/react";
+import ben from "../public/site-welcome.png";
 import Education from "./Education";
 import Interests from "./Interests";
 import { clickHandle } from "./types";
+import NextImage from 'next/image';
 
 const sections = ["Education", "Interests"];
 
@@ -37,7 +38,7 @@ const AboutMe: React.FC = () => {
           to build! Take a look around at some of my projects and interests and
           feel free to reach out to me on any of the platforms provided!
         </Text>
-        <Image boxSize="lg" objectFit="cover" src={ben} alt="ben" />
+        <NextImage style={{maxWidth: "50vw"}} src={ben} alt="ben" />
       </Box>
       <Box>
         <Box marginBottom='250' id="Education">

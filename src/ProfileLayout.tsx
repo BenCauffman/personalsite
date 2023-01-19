@@ -55,7 +55,7 @@ const ProfileLayout: React.FC = () => {
     else {
       const element = document.getElementById(`main-site`);
       element?.scrollIntoView({ behavior: "smooth" });
-      setToggle(false);
+      setTimeout(() => setToggle(false), 1000);
     }
   };
 
@@ -73,14 +73,10 @@ const ProfileLayout: React.FC = () => {
     return () => clearInterval(interval);
   });
 
-  useEffect(() => {
-    const id = setTimeout(() => setDisappear(!disappear), 1000);
-    return () => clearTimeout(id);
-  }, [toggle]);
 
   return (
     <>
-      {disappear ? (
+      {toggle ? (
         <Box
           textAlign="center"
           bg="black"
