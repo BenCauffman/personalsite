@@ -1,9 +1,10 @@
-import { Box, interactivity, Text } from "@chakra-ui/react";
+import { Box, Button, interactivity, Text } from "@chakra-ui/react";
 import { useEffect, useState, useMemo, lazy, Suspense } from "react";
 import space from "../public/images/space.png";
 import { useTransition, animated, to } from "react-spring";
+import DetailParent from "./DetailParent";
+import { clickHandle } from "./types";
 
-const DetailParent = lazy(() => import("./DetailParent"));
 type title = {
   title: string;
   x: number;
@@ -30,10 +31,11 @@ const TITLES: title[] = [
 
 const ProfileLayout: React.FC = () => {
   const original: title[] = useMemo(() => {
-    console.log("hi")
     return JSON.parse(JSON.stringify(TITLES));
   }, [TITLES]);
   const [rows, setRows] = useState(TITLES);
+  const [toggle, setToggle] = useState(true);
+  const [disappear, setDisappear] = useState(true);
 
   const rotateItems = (list: title[]) => {
     list.unshift(list.pop()!);
@@ -46,6 +48,15 @@ const ProfileLayout: React.FC = () => {
       item.y = original[index].y;
       return item;
     });
+  };
+
+  const clickHandle: clickHandle = (e) => {
+    if (!(e.target instanceof HTMLButtonElement)) return;
+    else {
+      const element = document.getElementById(`main-site`);
+      element?.scrollIntoView({ behavior: "smooth" });
+      setToggle(false);
+    }
   };
 
   const transitions = useTransition(rows, {
@@ -62,59 +73,69 @@ const ProfileLayout: React.FC = () => {
     return () => clearInterval(interval);
   });
 
+  useEffect(() => {
+    const id = setTimeout(() => setDisappear(!disappear), 1000);
+    return () => clearTimeout(id);
+  }, [toggle]);
+
   return (
     <>
-      <Box
-        textAlign="center"
-        bg="black"
-        h="100vh"
-        w="100vw"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Box position="relative">
-          <Text color="white" fontSize="5xl">
-            Ben Cauffman
-          </Text>
-          {transitions(({ x, y }, item) => {
-            if (item.title !== "") {
-              return (
-                <animated.div
-                  style={{
-                    transform: to(
-                      [x, y],
-                      (x, y) => `translate(${x}px, ${y}px)`
-                    ),
-                    backgroundColor: "teal",
-                    position: "absolute",
-                    fontSize: "20px",
-                    color: "white",
-                  }}
-                >
-                  {item.title}
-                </animated.div>
-              );
-            } else {
-              return (
-                <animated.div
-                  style={{
-                    transform: to(
-                      [x, y],
-                      (x, y) => `translate(${x}px, ${y}px)`
-                    ),
-                  }}
-                ></animated.div>
-              );
-            }
-          })}
+      {disappear ? (
+        <Box
+          textAlign="center"
+          bg="black"
+          h="100vh"
+          w="100vw"
+          display="flex"
+          gap="100px"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Box position="relative">
+            <Text color="white" fontSize="5xl">
+              Ben Cauffman
+            </Text>
+            {transitions(({ x, y }, item) => {
+              if (item.title !== "") {
+                return (
+                  <animated.div
+                    style={{
+                      transform: to(
+                        [x, y],
+                        (x, y) => `translate(${x}px, ${y}px)`
+                      ),
+                      backgroundColor: "teal",
+                      position: "absolute",
+                      fontSize: "20px",
+                      color: "white",
+                    }}
+                  >
+                    {item.title}
+                  </animated.div>
+                );
+              } else {
+                return (
+                  <animated.div
+                    style={{
+                      transform: to(
+                        [x, y],
+                        (x, y) => `translate(${x}px, ${y}px)`
+                      ),
+                    }}
+                  ></animated.div>
+                );
+              }
+            })}
+          </Box>
+          <Button onClick={clickHandle}>Go To Site</Button>
         </Box>
-      </Box>
-      <Suspense>
-      <Box position="relative" bg="yellow">
+      ) : (
+        <></>
+      )}
+      <Box id="main-site" position="relative" bg="yellow">
         <DetailParent />
       </Box>
-      </Suspense>
     </>
   );
 };
