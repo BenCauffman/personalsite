@@ -73,7 +73,6 @@ const ProfileLayout: React.FC = () => {
     return () => clearInterval(interval);
   });
 
-
   return (
     <>
       {toggle ? (

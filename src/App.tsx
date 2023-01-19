@@ -46,7 +46,7 @@ const App: React.FC = () => {
       >
         <ChakraProvider theme={theme}>
           <ProfileLayout />
-            <MainBody />
+          <MainBody />
         </ChakraProvider>
       </DetailContext.Provider>
     </div>

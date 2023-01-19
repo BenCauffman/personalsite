@@ -3,7 +3,7 @@ import ben from "../public/site-welcome.png";
 import Education from "./Education";
 import Interests from "./Interests";
 import { clickHandle } from "./types";
-import NextImage from 'next/image';
+import NextImage from "next/image";
 
 const sections = ["Education", "Interests"];
 
@@ -30,7 +30,7 @@ const AboutMe: React.FC = () => {
           );
         })}
       </Box>
-      <Box marginBottom='300' display='flex' gap="20px">
+      <Box marginBottom="300" display="flex" gap="20px">
         <Text fontSize="2xl">
           {" "}
           I am a Full Stack developer currently working on building interesting
@@ -38,14 +38,14 @@ const AboutMe: React.FC = () => {
           to build! Take a look around at some of my projects and interests and
           feel free to reach out to me on any of the platforms provided!
         </Text>
-        <NextImage style={{maxWidth: "50vw"}} src={ben} alt="ben" />
+        <NextImage style={{ maxWidth: "50vw" }} src={ben} alt="ben" />
       </Box>
       <Box>
-        <Box marginBottom='250' id="Education">
+        <Box marginBottom="250" id="Education">
           <Education />
         </Box>
-        <Box marginBottom='250' id="Interests">
-          <Interests/>
+        <Box marginBottom="250" id="Interests">
+          <Interests />
         </Box>
       </Box>
     </>

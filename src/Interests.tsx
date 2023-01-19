@@ -1,7 +1,6 @@
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import { clickHandle } from "./types";
-import NextImage from 'next/image'
-
+import NextImage from "next/image";
 
 const Interests: React.FC = () => {
   return (

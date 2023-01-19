@@ -1,11 +1,9 @@
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import geisel from "../public/geisel.png";
 import { clickHandle } from "./types";
-import Image from 'next/image'
-
+import Image from "next/image";
 
 const Education: React.FC = () => {
-
   return (
     <>
       <Stack direction="row" gap="20px">
