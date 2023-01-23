@@ -1,8 +1,9 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import ProfileLayout from "../src/ProfileLayout";
 import DetailContext from "../src/context";
 import MainBody from "../src/MainBody";
+import { Details } from "../src/types";
 
 const theme = extendTheme({
   colors: {
@@ -39,14 +40,56 @@ const App: React.FC = () => {
     "My Projects",
     "Contact Me",
   ]);
+  const providerValue = useMemo(
+    () => ({
+      active,
+      setActive,
+      section,
+      setSection,
+    }),
+    [active, section]
+  );
+  const [toggle, setToggle] = useState(true);
+  const [showInitial, setShowInitial] = useState(true);
+
+  useEffect(() => {
+
+    function makeVisible(el: HTMLElement) {
+      el.style.overflow = "visible";
+      el.style.display = "block";
+      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+    }
+    function scrollDown(el: HTMLElement) {
+      el.scrollIntoView({ behavior: "smooth" });
+      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+    }
+
+    function removeTop() {
+      setShowInitial(false);
+      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+    }
+    const element = document.getElementById("lower-site")!;
+
+    if (!toggle) {
+      new Promise((resolve) => {
+        setTimeout(() => resolve(1), 500);
+      })
+        .then(() => makeVisible(element))
+        .then(() => scrollDown(element))
+        .then(() => removeTop());
+    }
+  });
+
   return (
     <div>
-      <DetailContext.Provider
-        value={{ active, setActive, section, setSection }}
-      >
+      <DetailContext.Provider value={providerValue}>
         <ChakraProvider theme={theme}>
-          <ProfileLayout />
-          <MainBody />
+          {showInitial ? (
+            <ProfileLayout toggle={toggle} setToggle={setToggle} />
+          ) : null}
+          <div style={{ display: "none", overflow: "hidden" }} id="lower-site">
+            <MainBody />
+          </div>
         </ChakraProvider>
       </DetailContext.Provider>
     </div>

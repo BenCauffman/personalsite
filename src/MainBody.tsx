@@ -6,6 +6,7 @@ import Projects from "./Projects";
 import DetailContext from "./context";
 import ben from "../public/images/site-welcome.png";
 import ContactMe from "./ContactMe";
+import DetailParent from "./DetailParent";
 
 const MainBody: React.FC = () => {
   const { active } = useContext(DetailContext);
@@ -19,6 +20,9 @@ const MainBody: React.FC = () => {
   };
   return (
     <>
+      <Box id="main-site" position="relative" bg="yellow">
+        <DetailParent />
+      </Box>
       {getCurrentElement()}
     </>
   );
