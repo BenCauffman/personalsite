@@ -6,7 +6,6 @@ import MainBody from "../src/MainBody";
 import { Details } from "../src/types";
 import "../styles/styles.css";
 
-
 const theme = extendTheme({
   colors: {
     gray: {
@@ -58,16 +57,25 @@ const App: React.FC = () => {
     function makeVisible(el: HTMLElement) {
       el.style.overflow = "visible";
       el.style.display = "block";
-      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+      console.log(1);
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(1), 500);
+      });
     }
     function scrollDown(el: HTMLElement) {
       el.scrollIntoView({ behavior: "smooth" });
-      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+      console.log(2);
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(1), 1000);
+      });
     }
 
     function removeTop() {
       setShowInitial(false);
-      return new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+      console.log(3);
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(1), 500);
+      });
     }
     const element = document.getElementById("lower-site")!;
 
@@ -79,7 +87,7 @@ const App: React.FC = () => {
         .then(() => scrollDown(element))
         .then(() => removeTop());
     }
-  });
+  }, [toggle]);
 
   return (
     <div>
@@ -88,7 +96,7 @@ const App: React.FC = () => {
           {showInitial ? (
             <ProfileLayout toggle={toggle} setToggle={setToggle} />
           ) : null}
-          <div style={{ display: "none", overflow: "hidden"}} id="lower-site">
+          <div style={{ display: "none", overflow: "hidden" }} id="lower-site">
             <MainBody />
           </div>
         </ChakraProvider>
