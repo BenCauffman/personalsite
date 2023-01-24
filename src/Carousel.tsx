@@ -1,5 +1,5 @@
-import { Box, Button, NumberInputStepper, Stack, Text } from "@chakra-ui/react";
-import { useContext, useEffect, useState } from "react";
+import { Box, Button, Stack, Text } from "@chakra-ui/react";
+import { useContext } from "react";
 import DetailContext from "./context";
 import { clickHandle } from "./types";
 
@@ -12,7 +12,7 @@ const Carousel: React.FC<IProps> = ({ active, click }) => {
   const { section } = useContext(DetailContext);
 
   return (
-    <Stack minWidth="50%" bg="pink" display="flex" alignItems="center">
+    <Stack minWidth="50%" bg="teal" display="flex" alignItems="center">
       <Box display="flex" gap="20px">
         {section.map((detail, index) => {
           return (

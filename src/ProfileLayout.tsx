@@ -1,17 +1,13 @@
-import { Box, Button, interactivity, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import {
   useEffect,
   useState,
   useMemo,
-  lazy,
-  Suspense,
   useRef,
   Dispatch,
   SetStateAction,
 } from "react";
-import space from "../public/images/space.png";
 import { useTransition, animated, to } from "react-spring";
-import DetailParent from "./DetailParent";
 import { clickHandle } from "./types";
 
 type title = {
@@ -130,7 +126,9 @@ const ProfileLayout: React.FC<{
           );
         })}
       </Box>
-      <Button onClick={clickHandle}>Go To Site</Button>
+      <Button _hover={{ transform: "translateY(5px)" }} onClick={clickHandle}>
+        Go To Site
+      </Button>
     </Box>
   );
 };
