@@ -4,6 +4,8 @@ import ProfileLayout from "../src/ProfileLayout";
 import DetailContext from "../src/context";
 import MainBody from "../src/MainBody";
 import { Details } from "../src/types";
+import "../styles/styles.css";
+
 
 const theme = extendTheme({
   colors: {
@@ -53,7 +55,6 @@ const App: React.FC = () => {
   const [showInitial, setShowInitial] = useState(true);
 
   useEffect(() => {
-
     function makeVisible(el: HTMLElement) {
       el.style.overflow = "visible";
       el.style.display = "block";
@@ -87,7 +88,7 @@ const App: React.FC = () => {
           {showInitial ? (
             <ProfileLayout toggle={toggle} setToggle={setToggle} />
           ) : null}
-          <div style={{ display: "none", overflow: "hidden" }} id="lower-site">
+          <div style={{ display: "none", overflow: "hidden"}} id="lower-site">
             <MainBody />
           </div>
         </ChakraProvider>

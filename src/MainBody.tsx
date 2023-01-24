@@ -1,12 +1,19 @@
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
-import { ReactElement, useContext } from "react";
+import {
+  Box,
+  Image,
+  PositionProps,
+  ResponsiveValue,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
 import AboutMe from "./AboutMe";
-import Interests from "./Interests";
 import Projects from "./Projects";
 import DetailContext from "./context";
 import ben from "../public/images/site-welcome.png";
 import ContactMe from "./ContactMe";
 import DetailParent from "./DetailParent";
+import { clickHandle, FlexDirection } from "./types";
 
 const MainBody: React.FC = () => {
   const { active } = useContext(DetailContext);
@@ -18,13 +25,14 @@ const MainBody: React.FC = () => {
       return <Projects />;
     } else return <AboutMe />;
   };
+
   return (
-    <>
-      <Box id="main-site" position="relative" bg="yellow">
+    <Box display="flex" flexDirection="column">
+      <Box id="main-site" width="100vw" bg="yellow">
         <DetailParent />
       </Box>
       {getCurrentElement()}
-    </>
+    </Box>
   );
 };
 

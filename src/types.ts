@@ -8,3 +8,15 @@ export interface Details {
   section: string[];
   setSection: React.Dispatch<React.SetStateAction<string[]>>;
 }
+
+export type FlexDirection =
+  | "column"
+  | "inherit"
+  | "-moz-initial"
+  | "initial"
+  | "revert"
+  | "unset"
+  | "column-reverse"
+  | "row"
+  | "row-reverse"
+  | undefined;

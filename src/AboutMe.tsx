@@ -3,20 +3,19 @@ import ben from "../public/site-welcome.png";
 import Education from "./Education";
 import Interests from "./Interests";
 import { clickHandle } from "./types";
-import NextImage from "next/image";
-
+import Image from "next/image";
 const sections = ["Education", "Interests"];
+
 
 const AboutMe: React.FC = () => {
   const clickHandle: clickHandle = (e) => {
-    if (!(e.target instanceof HTMLButtonElement)) return;
-    else {
+    if (e.target instanceof HTMLButtonElement) {
       const element = document.getElementById(`${e.target.dataset.id}`);
       element?.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
-    <>
+    <Box marginX="150">
       <Box display="flex">
         {sections.map((section) => {
           return (
@@ -38,7 +37,9 @@ const AboutMe: React.FC = () => {
           to build! Take a look around at some of my projects and interests and
           feel free to reach out to me on any of the platforms provided!
         </Text>
-        <NextImage style={{ maxWidth: "50vw" }} src={ben} alt="ben" />
+        <Box className="boxes">
+          <Image className="photo" src={ben} alt="ben" />
+        </Box>
       </Box>
       <Box>
         <Box marginBottom="250" id="Education">
@@ -48,7 +49,7 @@ const AboutMe: React.FC = () => {
           <Interests />
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 
