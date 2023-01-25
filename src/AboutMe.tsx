@@ -1,11 +1,11 @@
-import { Box, Button, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
+import Image from "next/image";
 import ben from "../public/site-welcome.png";
 import Education from "./Education";
 import Interests from "./Interests";
 import { clickHandle } from "./types";
-import Image from "next/image";
-const sections = ["Education", "Interests"];
 
+const sections = ["Education", "Interests"];
 
 const AboutMe: React.FC = () => {
   const clickHandle: clickHandle = (e) => {
@@ -16,10 +16,18 @@ const AboutMe: React.FC = () => {
   };
   return (
     <Box marginX="150">
-      <Box display="flex">
+      <Box
+        display="flex"
+        position="fixed"
+        left="1"
+        gap="100px"
+        flexDirection="column"
+      >
         {sections.map((section) => {
           return (
             <Button
+              borderRadius="50%"
+              height="100"
               key={`${section}`}
               data-id={`${section}`}
               onClick={clickHandle}
@@ -29,20 +37,28 @@ const AboutMe: React.FC = () => {
           );
         })}
       </Box>
-      <Box marginBottom="300" display="flex" gap="20px">
-        <Text fontSize="2xl">
+      <Box
+        marginBottom="300"
+        display="flex"
+        gap="20px"
+        borderRadius="100"
+        padding="20"
+        justifyContent="center"
+      >
+        <Text css={{ textAlign: "center" }} fontSize="5xl">
           {" "}
-          I am a Full Stack developer currently working on building interesting
-          and fun applications and always looking for inspiration for cool stuff
-          to build! Take a look around at some of my projects and interests and
-          feel free to reach out to me on any of the platforms provided!
+          Welcome to my site
         </Text>
-        <Box className="boxes">
-          <Image className="photo" src={ben} alt="ben" />
-        </Box>
       </Box>
       <Box>
-        <Box marginBottom="250" id="Education">
+        <Box
+          bg="teal"
+          height="1000px"
+          borderRadius="50%"
+          textAlign="center"
+          id="Education"
+        >
+          <Text fontSize="2xl"> Education </Text>
           <Education />
         </Box>
         <Box marginBottom="250" id="Interests">

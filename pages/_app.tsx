@@ -2,7 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import DetailContext from "../src/context";
-import DetailParent from "../src/DetailParent";
+import "@fontsource/inter";
 
 import theme from "../theme";
 

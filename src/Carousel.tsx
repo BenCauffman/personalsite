@@ -17,6 +17,7 @@ const Carousel: React.FC<IProps> = ({ active, click }) => {
         {section.map((detail, index) => {
           return (
             <Button
+              bg="yellow.500"
               onClick={(e) => click(e)}
               data-active={detail}
               key={`${index}-${detail}`}

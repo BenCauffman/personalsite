@@ -1,4 +1,5 @@
 import { Box, Button, Text } from "@chakra-ui/react";
+import { ArrowDownIcon } from "@chakra-ui/icons";
 import {
   useEffect,
   useState,
@@ -90,7 +91,8 @@ const ProfileLayout: React.FC<{
   return (
     <Box
       textAlign="center"
-      bg="black"
+      bg="background: rgb(1,65,31);
+      background: linear-gradient(90deg, rgba(1,65,31,1) 0%, rgba(0,93,85,1) 47%, rgba(1,33,58,1) 92%);"
       h="100vh"
       w="100vw"
       display="flex"
@@ -126,8 +128,14 @@ const ProfileLayout: React.FC<{
           );
         })}
       </Box>
-      <Button _hover={{ transform: "translateY(5px)" }} onClick={clickHandle}>
-        Go To Site
+      <Button
+        bg="yellow.500"
+        _hover={{ transform: "translateY(5px)", bg: "yellow.200" }}
+        onClick={clickHandle}
+      >
+        <ArrowDownIcon />
+        Continue To Site
+        <ArrowDownIcon />
       </Button>
     </Box>
   );
