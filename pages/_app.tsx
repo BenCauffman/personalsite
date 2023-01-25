@@ -13,14 +13,17 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     "My Projects",
     "Contact Me",
   ]);
+  const [subsection, setSubsection] = useState(["Education", "Interests"]);
   const providerValue = useMemo(
     () => ({
       active,
       setActive,
       section,
       setSection,
+      subsection,
+      setSubsection,
     }),
-    [active, section]
+    [active, section, subsection]
   );
 
   return (

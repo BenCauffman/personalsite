@@ -2,10 +2,12 @@ import { createContext } from "react";
 import { Details } from "./types";
 
 const DetailContext = createContext<Details>({
-  active: 'hi',
+  active: "hi",
   setActive: () => {},
   section: ["hi"],
-  setSection: () => {}
+  setSection: () => {},
+  subsection: ["hi"],
+  setSubsection: () => {},
 });
 
 export default DetailContext;

@@ -1,36 +1,40 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import ben from "../public/site-welcome.png";
+import { useContext, useState } from "react";
+import DetailContext from "./context";
 import Education from "./Education";
 import Interests from "./Interests";
 import { clickHandle } from "./types";
 
-const sections = ["Education", "Interests"];
-
 const AboutMe: React.FC = () => {
+  const { subsection } = useContext(DetailContext);
   const clickHandle: clickHandle = (e) => {
     if (e.target instanceof HTMLButtonElement) {
       const element = document.getElementById(`${e.target.dataset.id}`);
       element?.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <Box marginX="150">
       <Box
         display="flex"
-        position="fixed"
+        position="absolute"
         left="1"
-        gap="100px"
+        paddingTop="50"
+        gap="50px"
         flexDirection="column"
       >
-        {sections.map((section) => {
+        {subsection.map((section) => {
           return (
             <Button
-              borderRadius="50%"
+              borderRadius="20%"
               height="100"
               key={`${section}`}
               data-id={`${section}`}
               onClick={clickHandle}
+              bg="brand.light"
+              _hover={{ bg: "brand.lightest" }}
             >
               {section}
             </Button>
@@ -44,25 +48,32 @@ const AboutMe: React.FC = () => {
         borderRadius="100"
         padding="20"
         justifyContent="center"
+        textAlign="center"
       >
-        <Text css={{ textAlign: "center" }} fontSize="5xl">
-          {" "}
-          Welcome to my site
-        </Text>
+        <Text fontSize="5xl"> Welcome to my site</Text>
       </Box>
       <Box>
-        <Box
-          bg="teal"
-          height="1000px"
-          borderRadius="50%"
-          textAlign="center"
-          id="Education"
-        >
+        <Box textAlign="center">
           <Text fontSize="2xl"> Education </Text>
-          <Education />
+          <Box
+            bg="brand.light"
+            borderRadius="20%"
+            textAlign="center"
+            id="Education"
+          >
+            <Education />
+          </Box>
         </Box>
-        <Box marginBottom="250" id="Interests">
-          <Interests />
+        <Box textAlign="center">
+          <Text fontSize="2xl"> Interests </Text>
+          <Box
+            bg="brand.light"
+            borderRadius="20%"
+            textAlign="center"
+            id="Interests"
+          >
+            <Interests />
+          </Box>
         </Box>
       </Box>
     </Box>

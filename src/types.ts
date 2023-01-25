@@ -7,6 +7,8 @@ export interface Details {
   setActive: React.Dispatch<React.SetStateAction<string>>;
   section: string[];
   setSection: React.Dispatch<React.SetStateAction<string[]>>;
+  subsection: string[];
+  setSubsection: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export type FlexDirection =
