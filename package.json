@@ -45,6 +45,7 @@
     "express": "^4.18.2",
     "next": "^13.1.2",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
     "react-spring": "^9.6.1"
