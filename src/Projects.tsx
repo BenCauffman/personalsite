@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <Box margin={margin}>
+    <Box marginX={margin}>
       <Stack>
         <Box
           display="flex"
@@ -210,12 +210,26 @@ const Projects: React.FC = () => {
                 width="60%"
                 color="brand.darkest"
               >
-                <Interests />
+                <Stack padding="20px" gap="20px">
+                  <Text
+                    paddingX="10px"
+                    fontSize={{
+                      sm: "16px",
+                      md: "18px",
+                      lg: "20px",
+                    }}
+                    s
+                  >
+                    {" "}
+                    A personal development tool that serves to promote and
+                    motivate self-growth through reminders of past acheivements
+                  </Text>
+                </Stack>
               </Box>
             </Box>
           </Box>
           <Text fontSize="2xl"> RESurrect </Text>
-          <Box display="flex" textAlign="left" paddingBottom="200px">
+          <Box display="flex" textAlign="left">
             <Box
               bg="brand.light"
               paddingY="20px"
@@ -224,7 +238,20 @@ const Projects: React.FC = () => {
               width="80%"
               color="brand.darkest"
             >
-              <ReacType />
+              <Stack padding="20px" gap="20px">
+                <Text
+                  paddingX="10px"
+                  fontSize={{
+                    sm: "16px",
+                    md: "18px",
+                    lg: "20px",
+                  }}
+                >
+                  {" "}
+                  A resume prototyping tool that allows a user to build,
+                  customize, and save resume versions while on the job hunt!
+                </Text>
+              </Stack>
             </Box>
             <Box
               display="flex"

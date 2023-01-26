@@ -1,4 +1,4 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Text, useMediaQuery } from "@chakra-ui/react";
 import { ArrowDownIcon } from "@chakra-ui/icons";
 import {
   useEffect,
@@ -44,6 +44,8 @@ const ProfileLayout: React.FC<{
   }, [TITLES]);
   const [rows, setRows] = useState(TITLES);
   const timer = useRef(0);
+  const [xLessThan790] = useMediaQuery("(min-width: 790px)");
+  const [yLessThan630] = useMediaQuery("(min-height: 630px)");
 
   const setPosition = (list: title[]) => {
     return list.map((item, index) => {
@@ -106,25 +108,30 @@ const ProfileLayout: React.FC<{
             Ben Cauffman
           </Text>
         </Box>
-        {transitions(({ x, y }, item) => {
-          return (
-            <animated.div
-              style={{
-                transform: to([x, y], (x, y) => `translate(${x}px, ${y}px)`),
-                backgroundColor: "#fad3d8",
-                position: "absolute",
-                fontSize: "20px",
-                color: "#00312e",
-                borderRadius: "40%",
-                padding: "20px",
-                right: "300px",
-                width: "150px",
-              }}
-            >
-              {item.title}
-            </animated.div>
-          );
-        })}
+        {xLessThan790 && yLessThan630
+          ? transitions(({ x, y }, item) => {
+              return (
+                <animated.div
+                  style={{
+                    transform: to(
+                      [x, y],
+                      (x, y) => `translate(${x}px, ${y}px)`
+                    ),
+                    backgroundColor: "#fad3d8",
+                    position: "absolute",
+                    fontSize: "20px",
+                    color: "#00312e",
+                    borderRadius: "50%",
+                    padding: "20px",
+                    right: "300px",
+                    width: "150px",
+                  }}
+                >
+                  {item.title}
+                </animated.div>
+              );
+            })
+          : null}
       </Box>
       <Button _hover={{ transform: "translateY(5px)" }} onClick={clickHandle}>
         <ArrowDownIcon />

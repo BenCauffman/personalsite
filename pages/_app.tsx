@@ -8,11 +8,7 @@ import theme from "../theme";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const [active, setActive] = useState("About Me");
-  const [section, setSection] = useState([
-    "About Me",
-    "My Projects",
-    "Contact Me",
-  ]);
+  const [section, setSection] = useState(["About Me", "My Projects"]);
   const [fixed, setFixed] = useState(
     "visible" as ResponsiveValue<Property.ZIndex>
   );
