@@ -61,7 +61,7 @@ const Leftsidebar: React.FC<{ fixed: ResponsiveValue<Property.ZIndex> }> = ({
           </Link>
         </ListItem>
         <ListItem>
-          <Link href="https://linkedin.com/benjamin-cauffman">
+          <Link href="https://www.linkedin.com/in/benjamin-cauffman/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
