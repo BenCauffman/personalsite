@@ -222,7 +222,7 @@ const Projects: React.FC = () => {
                   >
                     {" "}
                     A personal development tool that serves to promote and
-                    motivate self-growth through reminders of past acheivements
+                    motivate self-growth through reminders of past achievements
                   </Text>
                 </Stack>
               </Box>
