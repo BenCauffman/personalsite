@@ -12,6 +12,17 @@ const theme = extendTheme({
   //     },
   //   },
   // },
+  styles: {
+    global: {
+      body: {
+        color: "brand.lightest",
+        background: "brand.darkest",
+      },
+      button: {
+        color: "black",
+      },
+    },
+  },
   colors: {
     brand: {
       darkest: "#00312e",

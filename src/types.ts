@@ -1,3 +1,4 @@
+import { ResponsiveValue } from "@chakra-ui/react";
 import React from "react";
 
 export type clickHandle = (e: React.MouseEvent) => void;
@@ -7,8 +8,8 @@ export interface Details {
   setActive: React.Dispatch<React.SetStateAction<string>>;
   section: string[];
   setSection: React.Dispatch<React.SetStateAction<string[]>>;
-  subsection: string[];
-  setSubsection: React.Dispatch<React.SetStateAction<string[]>>;
+  fixed: ResponsiveValue<Position>;
+  setFixed: React.Dispatch<React.SetStateAction<ResponsiveValue<Position>>>;
 }
 
 export type FlexDirection =

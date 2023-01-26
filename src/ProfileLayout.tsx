@@ -91,8 +91,6 @@ const ProfileLayout: React.FC<{
   return (
     <Box
       textAlign="center"
-      bg="background: rgb(1,65,31);
-      background: linear-gradient(90deg, rgba(1,65,31,1) 0%, rgba(0,93,85,1) 47%, rgba(1,33,58,1) 92%);"
       h="100vh"
       w="100vw"
       display="flex"

@@ -1,10 +1,12 @@
-import { Box, Button, ButtonGroup, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import DetailContext from "./context";
 import Education from "./Education";
 import Interests from "./Interests";
+import Me from "./Me";
 import { clickHandle } from "./types";
+import ben from "../public/site-welcome.png";
 
 const AboutMe: React.FC = () => {
   const { subsection } = useContext(DetailContext);
@@ -19,63 +21,101 @@ const AboutMe: React.FC = () => {
     <Box marginX="150">
       <Box
         display="flex"
-        position="absolute"
-        left="1"
-        paddingTop="50"
-        gap="50px"
-        flexDirection="column"
-      >
-        {subsection.map((section) => {
-          return (
-            <Button
-              borderRadius="20%"
-              height="100"
-              key={`${section}`}
-              data-id={`${section}`}
-              onClick={clickHandle}
-              bg="brand.light"
-              _hover={{ bg: "brand.lightest" }}
-            >
-              {section}
-            </Button>
-          );
-        })}
-      </Box>
-      <Box
-        marginBottom="300"
-        display="flex"
         gap="20px"
         borderRadius="100"
         padding="20"
         justifyContent="center"
         textAlign="center"
       >
-        <Text fontSize="5xl"> Welcome to my site</Text>
+        <Text fontWeight="bold" fontSize="50px">
+          {" "}
+          Welcome!
+        </Text>
       </Box>
-      <Box>
-        <Box textAlign="center">
-          <Text fontSize="2xl"> Education </Text>
+      <Stack>
+        <Box
+          display="flex"
+          padding="20px"
+          borderRadius="20px"
+          textAlign="center"
+          id="top"
+        >
+          <Stack justifyContent="center" padding="20px">
+            <Text
+              paddingX="10px"
+              fontSize={{
+                sm: "18px",
+                lg: "30px",
+              }}
+            >
+              {" "}
+              I am a full stack developer who is passionate about how the
+              internet works and building pretty nifty things
+            </Text>
+            <Text fontSize="2xl"></Text>
+          </Stack>
           <Box
-            bg="brand.light"
-            borderRadius="20%"
-            textAlign="center"
-            id="Education"
+            borderRadius="10"
+            bg="brand.darkest"
+            boxShadow="inner"
+            maxWidth="300"
+            minWidth="200"
+            height="auto"
           >
-            <Education />
+            <Image src={ben} alt="ben" />
           </Box>
         </Box>
-        <Box textAlign="center">
-          <Text fontSize="2xl"> Interests </Text>
-          <Box
-            bg="brand.light"
-            borderRadius="20%"
-            textAlign="center"
-            id="Interests"
-          >
-            <Interests />
+        {/* <Box justifyContent="center" display="flex" gap="50px">
+          {subsection.map((section) => {
+            return (
+              <Button
+                borderRadius="20%"
+                height="100"
+                key={`${section}`}
+                data-id={`${section}`}
+                onClick={clickHandle}
+                bg="brand.light"
+                _hover={{ bg: "brand.lightest" }}
+              >
+                {section}
+              </Button>
+            );
+          })}
+        </Box> */}
+        <Stack paddingTop="50px" gap="200px">
+          <Box textAlign="left">
+            <Text fontSize="2xl"> Education </Text>
+            <Box
+              bg="brand.light"
+              paddingY="20px"
+              borderRadius="20px"
+              textAlign="left"
+              id="Education"
+              width="60%"
+            >
+              <Education />
+            </Box>
           </Box>
-        </Box>
-      </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            textAlign="center"
+            alignItems="flex-end"
+          >
+            <Text fontSize="2xl"> Interests </Text>
+            <Box
+              bg="brand.light"
+              padding="20px"
+              borderRadius="20px"
+              textAlign="right"
+              id="Interests"
+              width="60%"
+            >
+              <Interests />
+            </Box>
+          </Box>
+        </Stack>
+      </Stack>
     </Box>
   );
 };

@@ -6,8 +6,8 @@ const DetailContext = createContext<Details>({
   setActive: () => {},
   section: ["hi"],
   setSection: () => {},
-  subsection: ["hi"],
-  setSubsection: () => {},
+  fixed: "hidden",
+  setFixed: () => {},
 });
 
 export default DetailContext;
