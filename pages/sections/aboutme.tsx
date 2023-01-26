@@ -5,16 +5,26 @@ import DetailContext from "../../src/context";
 import DetailParent from "../../src/DetailParent";
 import Leftsidebar from "../../src/Leftsidebar";
 import Rightsidebar from "../../src/Rightsidebar";
+import { isMobile } from "react-device-detect";
 
 const AboutMeSection: React.FC = () => {
   const { fixed } = useContext(DetailContext);
   return (
-    <Box>
-      <DetailParent />
-      <Leftsidebar fixed={fixed} />
-      <AboutMe />
-      <Rightsidebar fixed={fixed} />
-    </Box>
+    <div>
+      {isMobile ? (
+        <Box>
+          <DetailParent />
+          <Leftsidebar fixed={fixed} />
+          <AboutMe />
+          <Rightsidebar fixed={fixed} />
+        </Box>
+      ) : (
+        <Box>
+          <DetailParent />
+          <AboutMe />
+        </Box>
+      )}
+    </div>
   );
 };
 
