@@ -1,8 +1,8 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ResponsiveValue } from "@chakra-ui/react";
 import { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import DetailContext from "../src/context";
-import DetailParent from "../src/DetailParent";
+import "@fontsource/inter";
 
 import theme from "../theme";
 
@@ -13,14 +13,19 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     "My Projects",
     "Contact Me",
   ]);
+  const [fixed, setFixed] = useState(
+    "visible" as ResponsiveValue<Property.ZIndex>
+  );
   const providerValue = useMemo(
     () => ({
       active,
       setActive,
       section,
       setSection,
+      fixed,
+      setFixed,
     }),
-    [active, section]
+    [active, section, fixed]
   );
 
   return (
