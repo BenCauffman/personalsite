@@ -44,7 +44,7 @@ const ProfileLayout: React.FC<{
   }, [TITLES]);
   const [rows, setRows] = useState(TITLES);
   const timer = useRef(0);
-  const [xLessThan790] = useMediaQuery("(min-width: 790px)");
+  const [xLessThan768] = useMediaQuery("(min-width: 768px)");
   const [yLessThan630] = useMediaQuery("(min-height: 630px)");
 
   const setPosition = (list: title[]) => {
@@ -108,7 +108,7 @@ const ProfileLayout: React.FC<{
             Ben Cauffman
           </Text>
         </Box>
-        {xLessThan790 && yLessThan630
+        {xLessThan768 && yLessThan630
           ? transitions(({ x, y }, item) => {
               return (
                 <animated.div

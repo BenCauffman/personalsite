@@ -1,4 +1,12 @@
-import { Box, List, ListIcon, ListItem, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  List,
+  ListIcon,
+  ListItem,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import {
   ArrowForwardIcon,
   ExternalLinkIcon,
@@ -19,9 +27,10 @@ const Projects: React.FC = () => {
       element?.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const [xLessThan768] = useMediaQuery("(min-width: 768px)");
 
   return (
-    <Box marginX={margin}>
+    <Box marginX={xLessThan768 ? "150" : "0"}>
       <Stack>
         <Box
           display="flex"

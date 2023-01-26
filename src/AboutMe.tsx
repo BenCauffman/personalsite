@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import DetailContext from "./context";
@@ -10,6 +10,7 @@ import ben from "../public/site-welcome.png";
 
 const AboutMe: React.FC = () => {
   const { margin } = useContext(DetailContext);
+  const [xLessThan768] = useMediaQuery("(min-width: 768px)");
   const clickHandle: clickHandle = (e) => {
     if (e.target instanceof HTMLButtonElement) {
       const element = document.getElementById(`${e.target.dataset.id}`);
@@ -18,7 +19,7 @@ const AboutMe: React.FC = () => {
   };
 
   return (
-    <Box marginX={margin}>
+    <Box marginX={xLessThan768 ? "150" : "0"}>
       <Box
         display="flex"
         gap="20px"
