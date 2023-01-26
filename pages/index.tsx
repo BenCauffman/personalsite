@@ -54,13 +54,9 @@ const Index: React.FC = () => {
       ) : null}
 
       {!xLessThan768 && isMobile ? (
-        <>
-          <Leftsidebar fixed={fixed} />
-          <div id="lower-site">
-            <MainBody />
-          </div>
-          <Rightsidebar fixed={fixed} />
-        </>
+        <div id="lower-site">
+          <MainBody />
+        </div>
       ) : (
         <>
           <Leftsidebar fixed={fixed} />
