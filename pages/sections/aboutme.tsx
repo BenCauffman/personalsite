@@ -11,7 +11,7 @@ const AboutMeSection: React.FC = () => {
   const { fixed } = useContext(DetailContext);
   return (
     <div>
-      {isMobile ? (
+      {!isMobile ? (
         <Box>
           <DetailParent />
           <Leftsidebar fixed={fixed} />

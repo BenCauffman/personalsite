@@ -12,7 +12,7 @@ const MainBody: React.FC = () => {
   const { fixed } = useContext(DetailContext);
   return (
     <div>
-      {isMobile ? (
+      {!isMobile ? (
         <Box display="flex" flexDirection="column">
           <Box id="main-site" width="100vw">
             <DetailParent />
