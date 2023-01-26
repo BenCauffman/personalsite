@@ -9,7 +9,7 @@ import { clickHandle } from "./types";
 import ben from "../public/site-welcome.png";
 
 const AboutMe: React.FC = () => {
-  const { subsection } = useContext(DetailContext);
+  const { margin } = useContext(DetailContext);
   const clickHandle: clickHandle = (e) => {
     if (e.target instanceof HTMLButtonElement) {
       const element = document.getElementById(`${e.target.dataset.id}`);
@@ -18,7 +18,7 @@ const AboutMe: React.FC = () => {
   };
 
   return (
-    <Box marginX="150">
+    <Box marginX={margin}>
       <Box
         display="flex"
         gap="20px"
@@ -45,6 +45,7 @@ const AboutMe: React.FC = () => {
               paddingX="10px"
               fontSize={{
                 sm: "18px",
+                md: "24px",
                 lg: "30px",
               }}
             >
@@ -52,14 +53,13 @@ const AboutMe: React.FC = () => {
               I am a full stack developer who is passionate about how the
               internet works and building pretty nifty things
             </Text>
-            <Text fontSize="2xl"></Text>
           </Stack>
           <Box
             borderRadius="10"
             bg="brand.darkest"
             boxShadow="inner"
             maxWidth="300"
-            minWidth="200"
+            minWidth="150"
             height="auto"
           >
             <Image src={ben} alt="ben" />
@@ -84,14 +84,28 @@ const AboutMe: React.FC = () => {
         </Box> */}
         <Stack paddingTop="50px" gap="200px">
           <Box textAlign="left">
-            <Text fontSize="2xl"> Education </Text>
+            <Text
+              fontSize={{
+                sm: "18px",
+                lg: "30px",
+              }}
+            >
+              {" "}
+              Education{" "}
+            </Text>
             <Box
               bg="brand.light"
               paddingY="20px"
               borderRadius="20px"
               textAlign="left"
               id="Education"
-              width="60%"
+              width="80%"
+              color="brand.darkest"
+              fontSize={{
+                sm: "16px",
+                md: "18px",
+                lg: "20px",
+              }}
             >
               <Education />
             </Box>
@@ -102,14 +116,28 @@ const AboutMe: React.FC = () => {
             textAlign="center"
             alignItems="flex-end"
           >
-            <Text fontSize="2xl"> Interests </Text>
+            <Text
+              fontSize={{
+                sm: "18px",
+                lg: "30px",
+              }}
+            >
+              {" "}
+              Interests{" "}
+            </Text>
             <Box
               bg="brand.light"
               padding="20px"
               borderRadius="20px"
               textAlign="right"
               id="Interests"
-              width="60%"
+              width="80%"
+              color="brand.darkest"
+              fontSize={{
+                sm: "16px",
+                md: "18px",
+                lg: "20px",
+              }}
             >
               <Interests />
             </Box>

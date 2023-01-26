@@ -111,10 +111,10 @@ const ProfileLayout: React.FC<{
             <animated.div
               style={{
                 transform: to([x, y], (x, y) => `translate(${x}px, ${y}px)`),
-                backgroundColor: "teal",
+                backgroundColor: "#fad3d8",
                 position: "absolute",
                 fontSize: "20px",
-                color: "white",
+                color: "#00312e",
                 borderRadius: "40%",
                 padding: "20px",
                 right: "300px",
@@ -126,11 +126,7 @@ const ProfileLayout: React.FC<{
           );
         })}
       </Box>
-      <Button
-        bg="yellow.500"
-        _hover={{ transform: "translateY(5px)", bg: "yellow.200" }}
-        onClick={clickHandle}
-      >
+      <Button _hover={{ transform: "translateY(5px)" }} onClick={clickHandle}>
         <ArrowDownIcon />
         Continue To Site
         <ArrowDownIcon />

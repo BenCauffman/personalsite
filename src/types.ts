@@ -10,6 +10,8 @@ export interface Details {
   setSection: React.Dispatch<React.SetStateAction<string[]>>;
   fixed: ResponsiveValue<Position>;
   setFixed: React.Dispatch<React.SetStateAction<ResponsiveValue<Position>>>;
+  margin: string;
+  setMargin: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type FlexDirection =

@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { color, extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   // components: {
@@ -19,7 +19,21 @@ const theme = extendTheme({
         background: "brand.darkest",
       },
       button: {
-        color: "black",
+        color: "brand.light",
+        border: "1px solid",
+        backgroundColor: "brand.darkest",
+      },
+      a: {
+        ":hover": {
+          color: "brand.normal",
+        },
+      },
+    },
+  },
+  components: {
+    Button: {
+      defaultProps: {
+        colorScheme: "brand",
       },
     },
   },

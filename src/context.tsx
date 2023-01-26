@@ -8,6 +8,8 @@ const DetailContext = createContext<Details>({
   setSection: () => {},
   fixed: "hidden",
   setFixed: () => {},
+  margin: "150",
+  setMargin: () => {}
 });
 
 export default DetailContext;

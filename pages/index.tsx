@@ -9,7 +9,7 @@ import Rightsidebar from "../src/Rightsidebar";
 const Index: React.FC = () => {
   const [toggle, setToggle] = useState(true);
   const [showInitial, setShowInitial] = useState(true);
-  const { setFixed } = useContext(DetailContext);
+  const { fixed } = useContext(DetailContext);
 
   useEffect(() => {
     function makeVisible(el: HTMLElement) {
@@ -28,7 +28,6 @@ const Index: React.FC = () => {
 
     function removeTop() {
       setShowInitial(false);
-      // setFixed("visible");
       return new Promise((resolve) => {
         setTimeout(() => resolve(1), 500);
       });
@@ -43,18 +42,18 @@ const Index: React.FC = () => {
         .then(() => scrollDown(element))
         .then(() => removeTop());
     }
-  }, [toggle, setFixed]);
+  }, [toggle]);
 
   return (
     <div>
       {showInitial ? (
         <ProfileLayout toggle={toggle} setToggle={setToggle} />
       ) : null}
-      <Leftsidebar />
+      <Leftsidebar fixed={fixed} />
       <div style={{ display: "none", overflow: "hidden" }} id="lower-site">
         <MainBody />
       </div>
-      <Rightsidebar />
+      <Rightsidebar fixed={fixed} />
     </div>
   );
 };
